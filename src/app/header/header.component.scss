@@ -1,0 +1,20 @@
+ul li {
+    list-style: none;
+    
+}
+mat-toolbar{
+    color:black;
+    background: black;
+    background: linear-gradient(90deg, rgba(35,40,42,1) 0%, rgba(178,203,211,1) 100%, rgba(233,233,233,1) 100%);
+}
+.mat-icon {
+    color: rgba(233,233,233,1);
+}
+span{
+    color: white;
+}
+
+.othericon .mat-icon {
+    color: #23282a;
+    margin-top: 3px;
+}

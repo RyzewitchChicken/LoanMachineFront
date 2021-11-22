@@ -1,0 +1,114 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()" ></app-header>
+
+
+
+
+<mat-drawer-container>
+  <mat-drawer class="bar" mode="side" [opened]=sideBarOpen>
+    <mat-nav-list >
+      <h2 matSubheader>Opciones</h2>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/main"><mat-icon>bar_chart </mat-icon> Inicio</a>
+      <mat-divider></mat-divider>
+
+    </mat-nav-list>
+  </mat-drawer>
+
+<mat-drawer-content>
+  <div class="container">
+      <h1>Bienvenido </h1> 
+      <mat-grid-list cols="1" rowHeight="320px" gutterSize="25px">
+        <mat-grid-tile>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>Sin Nombre </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="example-container">
+                <form clas="example-form" [formGroup]="predictform">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Monto de Deuda</mat-label>
+                  <input type="number" formControlName="second" matInput>
+                  <span matPrefix>$&nbsp;</span>
+                  
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Historial Crediticio</mat-label>
+                  <input type="number" matInput>
+                  <span matPrefix>$&nbsp;</span>
+
+                </mat-form-field> 
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Numero de Propiedades</mat-label>
+                  <input type="number" matInput>
+                </mat-form-field> 
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Cantidad de Multas</mat-label>
+                  <input type="number" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Nivel de Gravedad de Multa</mat-label>
+                  <input type="number" matInput>
+                </mat-form-field> 
+              </form> 
+              <button mat-button color="primary" (click) = toggleDisplay() (click)=predictResult() >Calcular</button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+  </div>
+  <!--Tabla de muestra-->
+  <div *ngIf = "isShow" class="container">
+    <mat-grid-list cols="1" rowHeight="320px" rowWidth="200px"  gutterSize="25px">
+      <mat-grid-tile>
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>Resultados </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="example-container">
+              <table>
+                <tr>
+                  <th>Monto de Deuda</th>
+                  <th>Historial Crediticio</th> 
+                  <th>Numero de Propiedades</th>
+                  <th>Cantidad de Multas</th>
+                  <th>Nivel de Gravedad de Multa</th>
+                  <th>Resultado</th>
+                </tr>
+                <tr>
+                  <td>ff</td>
+                  <td>ff</td>
+                  <td>ff</td>
+                  <td>ff</td>
+                  <td>ff</td>
+                  <td>ff</td>
+                </tr>
+
+              </table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+      </mat-grid-tile>
+
+
+    </mat-grid-list>
+</div>
+
+</mat-drawer-content>
+
+
+
+</mat-drawer-container>  
+<!--FIN HEAHDER-->
+
+
+
+
+

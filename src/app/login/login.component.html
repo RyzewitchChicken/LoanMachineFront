@@ -1,0 +1,69 @@
+
+    
+
+<div class="abs-center" *ngIf="isLogged; else loggedOut">
+  <h2>Ya has iniciado sesión</h2>
+</div>
+    
+
+
+<ng-template #loggedOut >
+
+  <div class="center-content">
+    <h1>Bienvenido</h1>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login/Register</mat-card-title>
+        
+      </mat-card-header>
+      <mat-card-content>
+        
+        <mat-tab-group>
+        
+          <mat-tab label="Login">
+            <form [formGroup]="profileForm" method="post">   
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input  type="email" formControlName="email" matInput   placeholder="UserName"  >
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" formControlName="password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'" >
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+            </form>
+            <button mat-button color="primary" type="submit" (click)="login()">Login</button> 
+          </mat-tab>
+            
+          <mat-tab label="Register">
+            <form [formGroup]="registerForm" method="post"> 
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" formControlName="email" matInput   placeholder="UserName"  >
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" formControlName="password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'" >
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Verify Password</mat-label>
+              <input type="password" formControlName="checkPassword" matInput placeholder="Verify Password" [type]="hide ? 'password' : 'text'"   >
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+          </form>
+          <button mat-button color="primary" type="submit" (click)="registerClient()">Register</button>
+          </mat-tab>
+        </mat-tab-group>
+        
+      </mat-card-content>
+    
+    </mat-card>
+  </div>  
+  
+</ng-template>  
+

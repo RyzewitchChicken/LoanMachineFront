@@ -1,0 +1,111 @@
+
+.abs-center,
+.center,
+.center-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+}
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .center-content {
+      margin-top: 250px;
+      margin-right: 800px;
+      text-align: -webkit-center;
+      
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+      margin-top: 10px;
+    width: 100%;
+  }
+  .mat-button{
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #00546f;
+  }
+h1 {
+  margin-right: 280px;
+  color: white;
+}
+.mat-tab{
+  color: #00546f;
+}
+
+::ng-deep {
+  // mat-icon-stepper selected color change 
+  .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+      background-color: #00546f!important;
+  }
+  
+  //input outline color
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: #00546f!important;
+      // opacity: 1!important;
+  }
+  
+  //mat-input focused color
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+      color: #00546f!important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: #00546f;
+   }
+   
+  .mat-hint, input, ::placeholder, .mat-form-field-label {
+         color: #00546f;
+  }
+   
+  .mat-form-field-ripple {
+      background-color: #027D7C !important;
+  }
+  // mat-input error outline color
+   .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+      color: #00546f!important;
+      opacity: 0.8!important;
+  }
+  
+  // mat-input carent color
+   .mat-input-element {
+      caret-color: #00546fed!important;
+  }
+  
+  // mat-input error carent color
+   .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+      caret-color: #00546f!important;
+  }
+  
+  // mat-label normal state style
+   .mat-form-field-label {
+      color: rgba(0,0,0,.6)!important;
+      // color: $mainColor!important;
+  }
+  .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #00546f !important;
+}
+  
+  // mat-label focused style
+   .mat-form-field.mat-focused .mat-form-field-label {
+      color: #00546f!important;
+  }
+  
+  // mat-label error style
+   .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+      color: #00546f!important;
+  }
+   }
