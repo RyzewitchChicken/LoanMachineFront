@@ -107,8 +107,13 @@ mat-drawer-container {
     color: white;
     height: 40px;
     background-color: #00546f;
-    margin-left: 650px;
+    float: right;
   }  
+  .inline {
+    
+    margin-right:5px;
+ }  
+
 mat-drawer-content {
     padding: 20px;
     
@@ -148,4 +153,28 @@ td, th {
     padding: 8px;
     font: roboto;
   }
-
+.dashboard-card {  
+    position: absolute;  
+    top: 15px;  
+    left: 15px;  
+    right: 15px;  
+    bottom: 15px;  
+    background-color: white;
+    color: black;
+    font-family: 'Space Mono', monospace;
+    height: 1000px;
+  } 
+  .dashboard-card2 {  
+    position: absolute;  
+    top: 15px;  
+    left: 15px;  
+    right: 15px;  
+    bottom: 15px;  
+    background-color: white;
+    color: black;
+    font-family: 'Space Mono', monospace;
+    
+  } 
+.sizeof {
+    height: 3000px;
+}  

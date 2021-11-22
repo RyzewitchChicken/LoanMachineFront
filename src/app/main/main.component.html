@@ -22,37 +22,44 @@
         <mat-grid-tile>
           <mat-card class="dashboard-card">
             <mat-card-header>
-              <mat-card-title>Sin Nombre </mat-card-title>
+              <mat-card-title>Prediccion de Prestamos </mat-card-title>
             </mat-card-header>
             <mat-card-content>
               <div class="example-container">
                 <form clas="example-form" [formGroup]="predictform">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Monto de Deuda</mat-label>
-                  <input type="number" formControlName="second" matInput>
+                  <input type="text" formControlName="primer" matInput>
                   <span matPrefix>$&nbsp;</span>
                   
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Historial Crediticio</mat-label>
-                  <input type="number" matInput>
-                  <span matPrefix>$&nbsp;</span>
-
+                  <mat-select formControlName="second" name="payment"   >
+                    <mat-option  [value]="'1'" >
+                      Si
+                    </mat-option>
+                    <mat-option  [value]="'0'" >
+                      No
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field> 
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Numero de Propiedades</mat-label>
-                  <input type="number" matInput>
+                  <input type="text" formControlName="third" matInput>
                 </mat-form-field> 
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Cantidad de Multas</mat-label>
-                  <input type="number" matInput>
+                  <input type="text" formControlName="fourth" matInput>
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Nivel de Gravedad de Multa</mat-label>
-                  <input type="number" matInput>
+                  <input type="text" formControlName="fifth" matInput>
                 </mat-form-field> 
-              </form> 
-              <button mat-button color="primary" (click) = toggleDisplay() (click)=predictResult() >Calcular</button>
+              </form>
+              <button mat-button class="inline" color="primary" (click) = ConsultGet() >Mostrar Resultados</button> 
+              <button mat-button class="inline" color="primary"  (click)=predictResult() >Calcular</button>
+              
               </div>
             </mat-card-content>
           </mat-card>
@@ -64,15 +71,15 @@
   </div>
   <!--Tabla de muestra-->
   <div *ngIf = "isShow" class="container">
-    <mat-grid-list cols="1" rowHeight="320px" rowWidth="200px"  gutterSize="25px">
-      <mat-grid-tile>
-        <mat-card class="dashboard-card">
+    <mat-grid-list cols="1" rowHeight="600px"  gutterSize="25px">
+      <mat-grid-tile >
+        <mat-card class="dashboard-card2">
           <mat-card-header>
             <mat-card-title>Resultados </mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <div class="example-container">
-              <table>
+              <table *ngFor="let c of consults | slice:0:3; let i=index">
                 <tr>
                   <th>Monto de Deuda</th>
                   <th>Historial Crediticio</th> 
@@ -82,12 +89,12 @@
                   <th>Resultado</th>
                 </tr>
                 <tr>
-                  <td>ff</td>
-                  <td>ff</td>
-                  <td>ff</td>
-                  <td>ff</td>
-                  <td>ff</td>
-                  <td>ff</td>
+                  <td>{{c.loanAmount}}</td>
+                  <td>{{c.creditHistory}}</td>
+                  <td>{{c.propertyAreaNum}}</td>
+                  <td>{{c.cantMultas}}</td>
+                  <td>{{c.nivelGravedadNum}}</td>
+                  <td>{{c.result == '1' ? 'Procede' : 'No Procede'}}</td>
                 </tr>
 
               </table>

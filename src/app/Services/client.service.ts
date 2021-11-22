@@ -9,6 +9,7 @@ import { Cliente } from '../module/client';
 })
 export class ClientService {
 
+  private url: string = 'http://localhost:8080/api/users';
   constructor(private http: HttpClient) { }
   private client = new BehaviorSubject<Cliente>(new Cliente());
   

@@ -1,17 +1,17 @@
 export class Consult
  {
-    first:number
-    second: number
-    third:number
-    fourth:number
-    fifth:number
+    cantMultas:number
+    creditHistory: number
+    loanAmount:number
+    nivelGravedadNum:number
+    propertyAreaNum:number
+    result:number
 
     constructor() {
-        this.first=0;
-        this.second=0;
-        this.third=0;
-        this.fourth=0;
-        this.fifth=0;
-        
+        this.cantMultas=0;
+        this.creditHistory=0;
+        this.loanAmount=0;
+        this.nivelGravedadNum=0;
+        this.propertyAreaNum=0;
     }
 }

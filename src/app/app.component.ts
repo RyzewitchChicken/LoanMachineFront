@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Loan Machine';
-  acountID:Number;
+  acountID:string;
   
 }

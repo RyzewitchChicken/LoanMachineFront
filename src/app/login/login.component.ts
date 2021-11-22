@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   password_confirm:string;
   password_check:string;
 
-
+  
   constructor(private formBuilder: FormBuilder,private appComponent:AppComponent, private clientService: ClientService,private router:Router,
     private _snackBar: MatSnackBar) { }
   
@@ -41,15 +41,14 @@ export class LoginComponent implements OnInit {
     this.cliente.password = this.profileForm.value.password;
     this.clientService.loginUser(this.cliente).subscribe(data => {
       if (data) {
-        console.log(data);
-        this.appComponent.acountID = data.id;
+        this.appComponent.acountID=data['data']["id"];
+        console.log(this.appComponent.acountID);
         this.router.navigate(['/main']);
         // this.isLogged = true;
       }else{
         console.log("no se puede entrar");
       }
      });
-    
   }
 
   

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { AppComponent } from '../app.component';
 import { Consult } from '../module/consult';
 import { ConsultService } from '../Services/consult.service';
 
@@ -12,7 +13,8 @@ export class MainComponent implements OnInit {
   sideBarOpen=true;
   isShow = false;
   consult = new Consult();
-  constructor(private formBuilder: FormBuilder,private consultService: ConsultService) { }
+  consults:Array<Consult>[];
+  constructor(private formBuilder: FormBuilder,private consultService: ConsultService, private appComponent:AppComponent) { }
 
   ngOnInit(): void {
   }
@@ -35,11 +37,29 @@ export class MainComponent implements OnInit {
   }
 
   predictResult() {
-    this.consult.first=this.predictform.value.primer;
-    this.consult.second=this.predictform.value.second;
-    this.consult.third=this.predictform.value.thrid;
-    this.consult.fourth=this.predictform.value.fourth;
-    this.consult.fifth=this.predictform.value.fifth;
-    console.log(this.consult.second);
+    this.consult.cantMultas=this.predictform.value.primer;
+    this.consult.creditHistory=this.predictform.value.second;
+    this.consult.loanAmount=this.predictform.value.third;
+    this.consult.nivelGravedadNum=this.predictform.value.fourth;
+    this.consult.propertyAreaNum=this.predictform.value.fifth;
+    this.consultService.postc( this.consult,this.appComponent.acountID).subscribe(
+      data=>{
+        console.log(this.consult);
+      }
+    );
+    this.predictform.reset();
+    
+  }
+
+  ConsultGet(){
+      this.isShow = !this.isShow;
+      this.consultService.Getconsult(this.appComponent.acountID).subscribe(
+        (data: Consult[])=>{
+          this.consults=data['data'];
+          console.table(this.consults);
+          
+        }
+      );
+      
   }
 }
